@@ -13,7 +13,7 @@ export const fetchMovies = (page = 1) => dispatch => {
 
 export const signup = (formProps, callback) => dispatch => {
   axios.post(
-    'http://localhost:5000/auth/signup',
+    '/auth/signup',
     formProps
   ).then(function (response) {
     dispatch({ type: AUTH_USER, payload: response.data });
@@ -28,7 +28,7 @@ export const signup = (formProps, callback) => dispatch => {
 
 export const signin = (formProps, callback) => dispatch => {
   axios.post(
-    'http://localhost:5000/auth/signin',
+    '/auth/signin',
     formProps
   ).then(function (response) {
     dispatch({ type: AUTH_USER, payload: response.data });
