@@ -31,9 +31,16 @@ class MovieList extends Component {
 
   render() {
     // we are using lodash's map function because this.props.movies is an object and the built-in js map function only works on arrays. We need to perform a function on every item in an object here, and lodash allows that functionality. For every movie in the object we will instantiate and return a Movie component to fill the Movie Grid component.
-    const movies = _.map(this.props.movies, (m) => {
-      return <Movie id={m.id} key={m.id} title={m.title} img={m.poster_path} />
-    });
+    // const movies = _.map(this.props.movies, (m) => {
+    //   return <Movie id={m.id} key={m.id} title={m.title} img={m.poster_path} />
+    // });
+
+   
+      const movies = this.props.order.map((id) => {
+        const movie = this.props.movies[id];
+  
+        return <Movie id={movie.id} key={id} title={movie.title} img={movie.poster_path} />
+      });
 
     // Instead of needing to have a user click a page button through pagination, we can implement the Infinite Scroll component (a custom npm package). For this library we need to define a pageStart number, a loadMore function and a hasMore boolean value, plus the items or components that we want rendered (in this case the Movie Grid). The loadMore function will be conditionally invoked, based on the boolean value of the hasMore prop. If we scroll to the bottom and the state of hasMoreItems is true, more will be loaded. In the loadItems function, we'll determine if there are more "pages" to load and if so, we'll call fetch movies with the new "page" and the hasMoreItems state prop will stay true. If we're at the last page, hasMoreItems will be set to false and the scroll will stop.
     return (
