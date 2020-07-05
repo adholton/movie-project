@@ -13,6 +13,7 @@ import MovieDetail from './components/MovieDetail'
 import Signup from './components/auth/Signup';
 import Signin from './components/auth/Signin';
 
+// Here we are initialized our redux store with a middleware called thunk, that helps us handle the asynchronicity of our api call. It will wrap our dispatch function and wait to invoke it with our action object until the api request is returned. 
 const store = createStore(rootReducer, {}, applyMiddleware(thunk));
 
 render(

@@ -11,7 +11,13 @@ class MovieDetail extends Component {
     const BACKDROP_PATH = "http://image.tmdb.org/t/p/w1280";
 
     const { movie } = this.props;
+    /*
+    React Overdrive: It's a library for page transitions that look animated. In our application the movie poster is the element that is animated upon transition from the movie list to the movie detail page. We need the overdrive component to wrap the transition component (the poster) in both the movie component and the movie detail component, and both overdrive components need to have the same id. See:
+    https://github.com/berzniz/react-overdrive
 
+    React Fragment: Typically React requires us to wrap multiple components with a parent component (usually a div). If we use fragment, we can return multiple elements without adding extra nodes to the DOM. The documentation provides a good example using tables, if the table/table row component wanted to return multiple td cells, they would normally have to be wrapped in a div, then a div would be inside the table row, which we don't want. If we wrapped all the cells in a fragment, they would insert into the row as expected. See: 
+    https://reactjs.org/docs/fragments.html
+    */
     return (
       <Fragment>
         <BackdropContainer
