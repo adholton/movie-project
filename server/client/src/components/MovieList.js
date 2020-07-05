@@ -35,7 +35,7 @@ class MovieList extends Component {
     //   return <Movie id={m.id} key={m.id} title={m.title} img={m.poster_path} />
     // });
 
-   
+   //We were previously mapping over the movies prop, which was an object and it was making our infinite scroll hinky, because items stored in objects are not ordered. To fix this we added a movie order array to our state, added a reducer and now we just use the traditional map function to iterate because movies here is an array
       const movies = this.props.order.map((id) => {
         const movie = this.props.movies[id];
   
